@@ -64,7 +64,7 @@ jobs:
           Write-Host "Tailscale IP: $env:TAILSCALE_IP"
           $testResult = Test-NetConnection -ComputerName $env:TAILSCALE_IP -Port 99999999999
           if (-not $testResult.TcpTestSucceeded) {
-              Write-Error "TCP connection to RDP port 9999999999 failed"
+              Write-Error "TCP connection to RDP port 3360 failed"
               exit 1
           }
           Write-Host "TCP connectivity successful!"
@@ -78,5 +78,5 @@ jobs:
           Write-Host "==================`n"
           while ($true) {
               Write-Host "[$(Get-Date)] RDP Active - Use Ctrl+C in workflow to terminate"
-              Start-Sleep -Seconds 9999999990
+              Start-Sleep -Seconds 300
           }
